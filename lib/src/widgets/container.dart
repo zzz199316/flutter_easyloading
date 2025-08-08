@@ -80,6 +80,11 @@ class EasyLoadingContainerState extends State<EasyLoadingContainer>
         widget.dismissOnTap ?? (EasyLoadingTheme.dismissOnTap ?? false);
     _ignoring =
         _dismissOnTap ? false : EasyLoadingTheme.ignoring(widget.maskType);
+    
+    if(widget.indicator == null){
+      _ignoring = true;
+    }
+    
     _maskColor = EasyLoadingTheme.maskColor(widget.maskType);
     _animationController = AnimationController(
       vsync: this,
